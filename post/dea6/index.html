@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode-钥匙和房间(每日一题) | ShenShilei's Blog</title><meta name="keywords" content="算法"><meta name="author" content="Shen Shilei"><meta name="copyright" content="Shen Shilei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="LeetCode刷题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode-钥匙和房间(每日一题)">
+<meta property="og:url" content="https://blog.shenshilei.site/post/dea6/index.html">
+<meta property="og:site_name" content="ShenShilei&#39;s Blog">
+<meta property="og:description" content="LeetCode刷题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg">
+<meta property="article:published_time" content="2020-08-31T04:21:54.000Z">
+<meta property="article:modified_time" content="2020-11-02T14:17:22.433Z">
+<meta property="article:author" content="Shen Shilei">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.shenshilei.site/post/dea6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":180,"position":"top","messagePrev":"这是一篇创建于","messageNext":"天前的文章，其中的信息可能已经有所发展或是发生改变。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Shen Shilei","link":"链接: ","source":"来源: ShenShilei's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-02 22:17:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = '1'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }})()</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/shenshilei1022/cdn@1.6/img/custom/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/analytics/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具箱</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/box/"><i class="fa-fw fas fa-th-large"></i><span> 网站聚合</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/shenshilei1022/cdn@2.0/"><i class="fa-fw fa fa-hdd"></i><span> MyCDN</span></a></li><li><a class="site-page" href="/note/"><i class="fa-fw fas fa-business-time"></i><span> 便利贴</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://music.shenshilei.site/"><i class="fa-fw fas fa-music"></i><span> 音乐播放器</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://webssh.shenshilei.site/"><i class="fa-fw fas fa-terminal"></i><span> SSH在线连接</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-pencil-alt"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-paperclip"></i><span> 关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-rocket"></i><span> 我</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://shenshilei1022.avosapps.us/"><i class="fa-fw fas fa-list-alt"></i><span> 评论管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://bt.shenshilei.site:8888/shenshilei"><i class="fa-fw fas fa-window-maximize"></i><span> 服务器管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://console.leancloud.app/applist.html#/apps"><i class="fa-fw fas fa-window-restore"></i><span> leancloud应用</span></a></li></ul></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ShenShilei's Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/analytics/"><i class="fa-fw fas fa-chart-line"></i><span> 统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具箱</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/box/"><i class="fa-fw fas fa-th-large"></i><span> 网站聚合</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/shenshilei1022/cdn@2.0/"><i class="fa-fw fa fa-hdd"></i><span> MyCDN</span></a></li><li><a class="site-page" href="/note/"><i class="fa-fw fas fa-business-time"></i><span> 便利贴</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://music.shenshilei.site/"><i class="fa-fw fas fa-music"></i><span> 音乐播放器</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://webssh.shenshilei.site/"><i class="fa-fw fas fa-terminal"></i><span> SSH在线连接</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-pencil-alt"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-paperclip"></i><span> 关于</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fas fa-rocket"></i><span> 我</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://shenshilei1022.avosapps.us/"><i class="fa-fw fas fa-list-alt"></i><span> 评论管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://bt.shenshilei.site:8888/shenshilei"><i class="fa-fw fas fa-window-maximize"></i><span> 服务器管理</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://console.leancloud.app/applist.html#/apps"><i class="fa-fw fas fa-window-restore"></i><span> leancloud应用</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">LeetCode-钥匙和房间(每日一题)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-31T04:21:54.000Z" title="发表于 2020-08-31 12:21:54">2020-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-02T14:17:22.433Z" title="更新于 2020-11-02 22:17:22">2020-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/LeetCode/">LeetCode</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">721</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/post/dea6/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/post/dea6/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p>有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，…，N-1，并且房间里可能有一些钥匙能使你进入下一个房间。</p>
+<p>在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，每个钥匙 rooms[i][j] 由 [0,1，…，N-1] 中的一个整数表示，其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。</p>
+<p>最初，除 0 号房间外的其余所有房间都被锁住。</p>
+<p>你可以自由地在房间之间来回走动。</p>
+<p>如果能进入每个房间返回 true，否则返回 false。</p>
+</blockquote>
+<div class="note warning no-icon flat"><p>示例 1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [[1],[2],[3],[]]</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure><br>解释:<br>我们从 0 号房间开始，拿到钥匙 1。<br>之后我们去 1 号房间，拿到钥匙 2。<br>然后我们去 2 号房间，拿到钥匙 3。<br>最后我们去了 3 号房间。<br>由于我们能够进入每个房间，我们返回 true。</p>
+<p>示例 2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[1,3],[3,0,1],[2],[0]]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure><br>解释：我们不能进入 2 号房间。</p>
+</div>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>思路：本质上这个题就是把你放进0号房间，考察你是否能走完全部房间。这种提供了一个入口，考察是否能够走完的这类题目，都可以用DFS或BFS来搜索遍历(就如同之前做过的扫雷题目。)</p>
+<h3 id="1-深度优先搜索"><a href="#1-深度优先搜索" class="headerlink" title="1. 深度优先搜索"></a>1. 深度优先搜索</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 对应的房间是否已经去过</span></span><br><span class="line">    <span class="keyword">boolean</span>[] flag;</span><br><span class="line">    <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canVisitAllRooms</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rooms == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> len = rooms.size();</span><br><span class="line">        flag = <span class="keyword">new</span> <span class="keyword">boolean</span>[len];</span><br><span class="line">        <span class="comment">// 从0号房间开始</span></span><br><span class="line">        dfs(rooms, <span class="number">0</span>);</span><br><span class="line">        <span class="comment">// 返回去过的房间数是否与全部房间数相等的结果</span></span><br><span class="line">        <span class="keyword">return</span> count == len;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 进入房间</span></span><br><span class="line">        flag[num] = <span class="keyword">true</span>;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="comment">// 在对应房间找钥匙</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: rooms.get(num)) &#123;</span><br><span class="line">            <span class="comment">// 进入没进过的房间</span></span><br><span class="line">            <span class="keyword">if</span> (!flag[i]) &#123;</span><br><span class="line">                dfs(rooms, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info no-icon flat"><p>时间复杂度为$O(n<em>m)$ 房屋总数</em>房间钥匙总数<br>空间复杂度为$O(n)$ 递归栈空间</p>
+</div>
+<h3 id="2-广度优先搜素"><a href="#2-广度优先搜素" class="headerlink" title="2. 广度优先搜素"></a>2. 广度优先搜素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canVisitAllRooms</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; rooms)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rooms == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> len = rooms.size();</span><br><span class="line">        <span class="comment">// 记录是否进入过房间</span></span><br><span class="line">        <span class="keyword">boolean</span>[] flag = <span class="keyword">new</span> <span class="keyword">boolean</span>[len];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 创建队列，保存待进入的房间</span></span><br><span class="line">        Queue&lt;List&lt;Integer&gt;&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="comment">// 待进入0号房间</span></span><br><span class="line">        queue.offer(rooms.get(<span class="number">0</span>));</span><br><span class="line">        count++;</span><br><span class="line">        flag[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="comment">// 进入房间</span></span><br><span class="line">            List&lt;Integer&gt; room = queue.poll();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i: room) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!flag[i]) &#123;</span><br><span class="line">                    <span class="comment">// 添加房间进入队列</span></span><br><span class="line">                    queue.offer(rooms.get(i));</span><br><span class="line">                    flag[i] = <span class="keyword">true</span>;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count == len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info no-icon flat"><p>时间复杂度为$O(n<em>m)$ 房屋总数</em>房间钥匙总数<br>空间复杂度为$O(n)$ 队列空间大小最大为房间总数</p>
+</div>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/keys-and-rooms/solution/yao-chi-he-fang-jian-by-leetcode-solution/">钥匙和房间</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Shen Shilei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.shenshilei.site/post/dea6/">https://blog.shenshilei.site/post/dea6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.shenshilei.site" target="_blank">ShenShilei's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/WeChanSQ.png" target="_blank"><img class="post-qr-code-img" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/WeChanSQ.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/AliPayQR.png" target="_blank"><img class="post-qr-code-img" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/AliPayQR.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/4c71/"><img class="prev-cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LeetCode-预测赢家(每日一题)</div></div></a></div><div class="next-post pull-right"><a href="/post/7ee8/"><img class="next-cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LeetCode-重复的子字符串(每日一题)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/9ab8/" title="剑指Offer-用两个栈实现队列"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/317.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-04</div><div class="title">剑指Offer-用两个栈实现队列</div></div></a></div><div><a href="/post/7a42/" title="算法汇总整理"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/350.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-06</div><div class="title">算法汇总整理</div></div></a></div><div><a href="/post/f6d6/" title="剑指Offer-不用加减乘除做加法"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/317.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-04</div><div class="title">剑指Offer-不用加减乘除做加法</div></div></a></div><div><a href="/post/e238/" title="剑指Offer-二维数组的查找"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/317.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="title">剑指Offer-二维数组的查找</div></div></a></div><div><a href="/post/390/" title="剑指Offer-动态规划"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/317.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-05</div><div class="title">剑指Offer-动态规划</div></div></a></div><div><a href="/post/94c0/" title="剑指Offer-快速幂"><img class="cover" src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/317.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-06</div><div class="title">剑指Offer-快速幂</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/shenshilei1022/cdn@1.6/img/custom/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shen Shilei</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">38</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenshilei1022"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/shenshilei1022" target="_blank" title="Github"><i class="iconfont icon-github1"></i></a><a class="social-icon" href="mailto:1774822536@qq.com" target="_blank" title="Email"><i class="iconfont icon-youxiang"></i></a><a class="social-icon" href="https://gitee.com/shenshilei1022" target="_blank" title="Gitee"><i class="iconfont icon-github2"></i></a><a class="social-icon" href="https://music.163.com/#/user/home?id=77600006" target="_blank" title="Netease Music"><i class="iconfont icon-wangyiyunyinle"></i></a><a class="social-icon" href="https://space.bilibili.com/15250718" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili1"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">活在当下</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-text">1. 深度优先搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A0"><span class="toc-text">2. 广度优先搜素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/1ea5/" title="前端练习-九宫格"><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/353.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端练习-九宫格"/></a><div class="content"><a class="title" href="/post/1ea5/" title="前端练习-九宫格">前端练习-九宫格</a><time datetime="2020-09-14T09:06:40.000Z" title="发表于 2020-09-14 17:06:40">2020-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/7240/" title="LeetCode-组合(每日一题)"><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode-组合(每日一题)"/></a><div class="content"><a class="title" href="/post/7240/" title="LeetCode-组合(每日一题)">LeetCode-组合(每日一题)</a><time datetime="2020-09-08T07:13:45.000Z" title="发表于 2020-09-08 15:13:45">2020-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/aeeb/" title="LeetCode-前K个高频元素(每日一题)"><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode-前K个高频元素(每日一题)"/></a><div class="content"><a class="title" href="/post/aeeb/" title="LeetCode-前K个高频元素(每日一题)">LeetCode-前K个高频元素(每日一题)</a><time datetime="2020-09-07T08:46:04.000Z" title="发表于 2020-09-07 16:46:04">2020-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/7a42/" title="算法汇总整理"><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/350.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法汇总整理"/></a><div class="content"><a class="title" href="/post/7a42/" title="算法汇总整理">算法汇总整理</a><time datetime="2020-09-06T01:08:48.000Z" title="发表于 2020-09-06 09:08:48">2020-09-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/651a/" title="LeetCode-二叉树的所有路径(每日一题)"><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode-二叉树的所有路径(每日一题)"/></a><div class="content"><a class="title" href="/post/651a/" title="LeetCode-二叉树的所有路径(每日一题)">LeetCode-二叉树的所有路径(每日一题)</a><time datetime="2020-09-04T04:34:56.000Z" title="发表于 2020-09-04 12:34:56">2020-09-04</time></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/357.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 By Shen Shilei</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">回首向来萧瑟处，归去，也无风雨也无晴。</div><div class="icp"><a><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>陕ICP备2020013027号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'A2SjWuspv5TQF8rzabRx8Y1d-MdYXbMMI',
+      appKey: 'SYbn4zrNF0biLCBhwQ0956wm',
+      placeholder: '留下你的足迹...(昵称中填写QQ号可使用QQ头像和QQ邮箱)',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/shenshilei1022/emotion@1.0/',
+      emojiMaps: {"1":"aru/1.png","2":"aru/2.png","3":"aru/3.png","4":"aru/4.png","5":"aru/5.png","6":"aru/6.png","7":"aru/7.png","8":"aru/8.png","9":"aru/9.png","10":"aru/10.png","11":"aru/11.png","12":"aru/12.png","13":"aru/13.png","14":"aru/14.png","15":"aru/15.png","16":"aru/16.png","17":"aru/17.png","18":"aru/18.png","19":"aru/19.png","20":"aru/20.png","21":"aru/21.png","22":"aru/22.png","23":"aru/23.png","24":"aru/24.png","25":"aru/25.png","26":"aru/26.png","27":"aru/27.png","28":"aru/28.png","29":"aru/29.png","30":"aru/30.png","31":"aru/31.png","32":"aru/32.png","33":"aru/33.png","34":"aru/34.png","35":"aru/35.png","36":"aru/36.png","37":"aru/37.png","38":"aru/38.png","39":"猥琐萌/1.jpg","40":"猥琐萌/2.jpg","41":"猥琐萌/3.jpg","42":"猥琐萌/4.jpg","43":"猥琐萌/5.jpg","44":"猥琐萌/6.jpg","45":"猥琐萌/7.jpg","46":"猥琐萌/8.jpg","47":"猥琐萌/9.jpg","48":"猥琐萌/10.jpg","49":"猥琐萌/11.jpg","50":"猥琐萌/12.jpg","51":"猥琐萌/13.jpg","52":"猥琐萌/14.jpg","53":"猥琐萌/15.jpg","54":"猥琐萌/16.jpg","55":"猥琐萌/17.jpg","56":"猥琐萌/18.jpg","57":"猥琐萌/19.jpg","58":"猥琐萌/20.jpg","59":"猥琐萌/21.jpg","60":"猥琐萌/22.jpg","61":"猥琐萌/23.jpg","62":"猥琐萌/24.jpg","63":"猥琐萌/25.jpg","64":"猥琐萌/26.jpg","65":"猥琐萌/27.jpg","66":"猥琐萌/28.jpg","67":"猥琐萌/29.jpg","68":"猥琐萌/30.jpg","69":"猥琐萌/31.jpg","70":"猥琐萌/32.jpg","71":"猥琐萌/33.jpg","72":"猥琐萌/34.jpg","73":"猥琐萌/35.jpg","74":"猥琐萌/36.jpg","75":"猥琐萌/37.jpg","76":"猥琐萌/38.jpg","77":"猥琐萌/39.jpg","78":"猥琐萌/40.jpg","79":"猥琐萌/41.jpg","80":"猥琐萌/42.jpg","81":"猥琐萌/43.jpg","82":"猥琐萌/44.jpg","83":"猥琐萌/45.jpg","84":"猥琐萌/46.jpg","85":"猥琐萌/47.jpg","86":"猥琐萌/48.jpg","87":"猥琐萌/49.jpg","88":"猥琐萌/50.jpg","89":"猥琐萌/51.jpg","90":"猥琐萌/52.jpg","91":"猥琐萌/53.jpg","92":"猥琐萌/54.jpg","93":"猥琐萌/55.jpg","94":"猥琐萌/56.jpg","95":"猥琐萌/57.jpg","96":"猥琐萌/58.jpg","97":"猥琐萌/59.jpg","98":"猥琐萌/60.jpg","djxbz":"copy/djxbz.jpg","gan":"copy/gan.jpg","hp":"copy/hp.jpg","huaiyi":"copy/huaiyi.jpg","imgcao":"copy/imgcao.jpg","imghua":"copy/imghua.jpg","imgri":"copy/imgri.jpg","mudenggoudai":"copy/mudenggoudai.jpg","pc":"copy/pc.jpg","tlspg":"copy/tlspg.jpg","tql":"copy/tql.jpg","wuyu":"copy/wuyu.jpg","zzxbz":"copy/zzxbz.jpg","icon_huaji":"copy/icon_huaji.png","仙女下凡":"copy/仙女下凡.webp","听歌":"copy/听歌.webp","嫌弃":"copy/嫌弃.webp","害羞":"bilibili/tv_害羞.png","彩虹滑稽":"copy/彩虹滑稽.webp","快走":"copy/快走.webp","扯脸":"copy/扯脸.webp","摸脸":"copy/摸脸.webp","流汗":"bilibili/tv_流汗.png","滑滑板":"copy/滑滑板.webp","点赞":"bilibili/tv_点赞.png","转圈圈":"copy/转圈圈.webp","光头小人1":"copy/光头小人_(1).gif","光头小人19":"copy/光头小人_(19).gif","光头小人20":"copy/光头小人_(20).gif","光头小人21":"copy/光头小人_(21).gif","光头小人22":"copy/光头小人_(22).gif","光头小人23":"copy/光头小人_(23).gif","光头小人24":"copy/光头小人_(24).gif","光头小人25":"copy/光头小人_(25).gif","光头小人26":"copy/光头小人_(26).gif","光头小人27":"copy/光头小人_(27).gif","光头小人28":"copy/光头小人_(28).gif","光头小人29":"copy/光头小人_(29).gif","光头小人30":"copy/光头小人_(30).gif","光头小人31":"copy/光头小人_(31).gif","光头小人32":"copy/光头小人_(32).gif","光头小人33":"copy/光头小人_(33).gif","光头小人34":"copy/光头小人_(34).gif","光头小人35":"copy/光头小人_(35).gif","光头小人36":"copy/光头小人_(36).gif","光头小人37":"copy/光头小人_(37).gif","光波":"copy/光波.gif","厕所1":"copy/厕所_(1).gif","厕所2":"copy/厕所_(2).gif","厕所3":"copy/厕所_(3).gif","咸鱼":"copy/咸鱼.gif","奏乐1":"copy/奏乐_(1).gif","奏乐10":"copy/奏乐_(10).gif","奏乐2":"copy/奏乐_(2).gif","奏乐4":"copy/奏乐_(4).gif","奏乐5":"copy/奏乐_(5).gif","奏乐6":"copy/奏乐_(6).gif","奏乐7":"copy/奏乐_(7).gif","奏乐8":"copy/奏乐_(8).gif","奏乐9":"copy/奏乐_(9).gif","奔跑狗5":"copy/奔跑狗 (5).gif","奔跑狗1":"copy/奔跑狗_(1).gif","奔跑狗2":"copy/奔跑狗_(2).gif","奔跑狗3":"copy/奔跑狗_(3).gif","奔跑狗4":"copy/奔跑狗_(4).gif","害怕滑稽":"copy/害怕滑稽.gif","小人儿10":"copy/小人儿_(10).gif","小兔吃东西12":"copy/小兔吃东西_(12).gif","小兔吃东西13":"copy/小兔吃东西_(13).gif","小兔吃东西14":"copy/小兔吃东西_(14).gif","小兔吃东西18":"copy/小兔吃东西_(18).gif","小兔吃东西19":"copy/小兔吃东西_(19).gif","小兔吃东西20":"copy/小兔吃东西_(20).gif","小兔吃东西21":"copy/小兔吃东西_(21).gif","小兔吃东西22":"copy/小兔吃东西_(22).gif","小疯子2":"copy/小疯子_(2).gif","小疯子3":"copy/小疯子_(3).gif","小疯子4":"copy/小疯子_(4).gif","小疯子5":"copy/小疯子_(5).gif","小疯子6":"copy/小疯子_(6).gif","小疯子7":"copy/小疯子_(7).gif","小疯子8":"copy/小疯子_(8).gif","扇子狗":"copy/扇子狗.gif","抓1":"copy/抓_(1).gif","抓2":"copy/抓_(2).gif","掐脖子":"copy/掐脖子.gif","滑稽1":"copy/滑稽_(1).gif","滑稽2":"copy/滑稽_(2).gif","滑稽3":"copy/滑稽_(3).gif","滑稽4":"copy/滑稽_(4).gif","跪坐1":"copy/跪坐_(1).gif","跪坐2":"copy/跪坐_(2).gif","鹦鹉小恐龙1":"copy/鹦鹉小恐龙_(1).gif","鹦鹉小恐龙2":"copy/鹦鹉小恐龙_(2).gif","doge":"bilibili/tv_doge.png","亲亲":"bilibili/tv_亲亲.png","偷笑":"bilibili/tv_偷笑.png","再见":"bilibili/tv_再见.png","冷漠":"bilibili/tv_冷漠.png","发怒":"bilibili/tv_发怒.png","发财":"bilibili/tv_发财.png","可爱":"bilibili/tv_可爱.png","吐血":"bilibili/tv_吐血.png","呆":"bilibili/tv_呆.png","呕吐":"bilibili/tv_呕吐.png","困":"bilibili/tv_困.png","坏笑":"bilibili/tv_坏笑.png","大佬":"bilibili/tv_大佬.png","大哭":"bilibili/tv_大哭.png","委屈":"bilibili/tv_委屈.png","尴尬":"bilibili/tv_尴尬.png","微笑":"bilibili/tv_微笑.png","思考":"bilibili/tv_思考.png","惊吓":"bilibili/tv_惊吓.png","打脸":"bilibili/tv_打脸.png","抓狂":"bilibili/tv_抓狂.png","抠鼻":"bilibili/tv_抠鼻.png","斜眼笑":"bilibili/tv_斜眼笑.png","无奈":"bilibili/tv_无奈.png","晕":"bilibili/tv_晕.png","流泪":"bilibili/tv_流泪.png","流鼻血":"bilibili/tv_流鼻血.png","生气":"bilibili/tv_生气.png","生病":"bilibili/tv_生病.png","疑问":"bilibili/tv_疑问.png","白眼":"bilibili/tv_白眼.png","皱眉":"bilibili/tv_皱眉.png","目瞪口呆":"bilibili/tv_目瞪口呆.png","睡着":"bilibili/tv_睡着.png","笑哭":"bilibili/tv_笑哭.png","腼腆":"bilibili/tv_腼腆.png","色":"bilibili/tv_色.png","调侃":"bilibili/tv_调侃.png","调皮":"bilibili/tv_调皮.png","鄙视":"bilibili/tv_鄙视.png","闭嘴":"bilibili/tv_闭嘴.png","难过":"bilibili/tv_难过.png","馋":"bilibili/tv_馋.png","鬼脸":"bilibili/tv_鬼脸.png","黑人问号":"bilibili/tv_黑人问号.png","鼓掌":"bilibili/tv_鼓掌.png"},
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>便利贴TODO</title>
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
+    <style>
+        html,
+        body {
+        margin: 0;
+        padding: 0;
+        }
+        body {
+            background: #f5f5f5;
+            font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #4d4d4d;
+            min-width: 230px;
+            max-width: 550px;
+            margin: auto;
+            /* 抗锯齿渲染，使字看起来更清晰 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        button {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            font-size: 100%;
+            vertical-align: baseline;
+            font-family: inherit;
+            font-weight: inherit;
+            color: inherit;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #todoapp {
+            margin: 180px 0 40px 0;
+            background-color: #fff;
+            position: relative;
+            /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1); */
+        }
+
+        #todoapp h1 {
+            position: absolute;
+            top: -180px;
+            width: 100%;
+            text-align: center;
+            font-size: 60px;
+            font-weight: 200;
+            color: rgba(32, 94, 187, 0.6);
+            /* 告诉渲染引擎工作时如何优化显示文本 */
+            -webkit-text-rendering: optimizeLegibility;
+            -moz-text-rendering: optimizeLegibility;
+            text-rendering: optimizeLegibility;
+        }
+
+        #todoapp input {
+            font-weight: 150;
+            color: gray;
+        }
+
+        /* 定义placeholder字体样式 */
+        #todoapp input::-webkit-input-placeholder {
+            font-style: italic;
+            font-weight: 150;
+            color: #e6e6e6;
+        }
+
+        .new-todo,
+        .edit {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            font-size: 24px;
+            font-family: inherit;
+            font-weight: inherit;
+            /* 行间距 */
+            line-height: 1.4em;
+        }
+
+        .new-todo {
+            border: none;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.003);
+            box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 获得焦点处的样式 */
+        :focus {
+            outline: none;
+        }
+
+        .todo-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            max-height: 420px;
+            overflow: auto;
+        }
+
+        .todo-list li {
+            position: relative;
+            font-size: 24px;
+            border-bottom: 1px solid #ededed;
+            height: 60px;
+        }
+
+        .todo-list .view .index {
+            position: absolute;
+            color: gray;
+            top: 20px;
+            left: 10px;
+            font-size: 16px;
+        }
+
+        .todo-list label {
+            display: block;
+            word-break: break-all;
+            padding: 12px 15px 15px 60px;
+            transition: color 0.4s;
+            font-weight: 150;
+        }
+
+        .todo-list label:hover {
+            color: #2007af;
+        }
+
+        .todo-list li .destroy {
+            display: none;
+            position: absolute;
+            top: 12px;
+            right: 49px;
+            width: 0px;
+            height: 40px;
+            font-size: 30px;
+            color: #cc9a9a;
+            transition: color 0.2s ease-out;
+        }
+
+        .todo-list li:hover .destroy {
+            display: block;
+        }
+
+        .todo-list li .destroy:hover {
+            color: #af5b5e;
+        }
+
+        .todo-list li .destroy:after {
+            content: "×";
+        }
+
+        .footer {
+            position: relative;
+            z-index: 10;
+            height: 40px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 1px -6px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer .todo-count {
+            position: absolute;
+            padding-left: 10px;
+            margin-top: 12px;
+            text-align: left;
+            color: gray;
+        }
+
+        .clear-complete {
+            position: absolute;
+            right: 23px;
+            top: 12px;
+            color: gray;
+        }
+
+        #author {
+            position: relative;
+            padding-top: 19px;
+            background: #f5f5f5;
+        }
+
+        #authorContent {
+            color: rgb(93, 96, 228, 0.6);
+            float: right;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section id="todoapp">
+        <!-- 标题和输入框 -->
+        <header class="header">
+            <h1> 便利贴TODO </h1>
+        <input type="text" class="new-todo" placeholder="请输入任务..." v-model="addItem" @keyup.enter="add">
+        </header>
+        <!-- 列表区域 -->
+        <section class="main">
+            <ul class="todo-list">
+                <li v-for="(item,index) in list">
+                    <div class="view">
+                        <span class="index"> {{ index + 1 }}. </span>
+                        <label> {{ item }} </label>
+                        <button class="destroy" @click="remove(index)"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- 统计和清空 -->
+        <footer class="footer" v-show="list.length!=0">
+            <span class="todo-count">{{ list.length }}  items left</span>
+            <button class="clear-complete" @click="clearAll">Clear</button>
+        </footer>
+        <!-- 作者信息 -->
+        <footer id="author">
+            <a id="authorContent" href="https://shenshilei1022.gitee.io/">
+                By ShenShilei
+            </div>
+        </footer>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#todoapp",
+            data: {
+                list: ["早起", "吃饭", "睡觉"],
+                addItem: ""
+            },
+            methods: {
+                add: function(){
+                    // 添加待办到列表中后，清空input框内容
+                    this.list.push(this.addItem);
+                    this.addItem = "";
+                },
+                remove: function(index){
+                    this.list.splice(index, 1);
+                },
+                clearAll: function(){
+                    this.list = [];
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
