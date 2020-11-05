@@ -177,6 +177,12 @@ $(function () {
           selection.removeAllRanges()
           $buttonParent.removeClass('copy-true')
         })
+
+        // 代码全屏
+        $(document).on('click', '.highlight-tools', function (e) {
+          if (e.target !== this) return
+          $(this).parents('figure.highlight').toggleClass('code-block-fullscreen')
+        })
       }
     }
   }
