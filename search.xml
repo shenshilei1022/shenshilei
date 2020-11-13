@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>文献阅读笔记（一）</title>
+      <link href="post/da0c/"/>
+      <url>post/da0c/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Photonic-zero-energy-modes-in-a-metal-based-Lieb-lattice（厦门大学-Ying-Chen）"><a href="#1-Photonic-zero-energy-modes-in-a-metal-based-Lieb-lattice（厦门大学-Ying-Chen）" class="headerlink" title="1. Photonic zero-energy modes in a metal-based Lieb lattice（厦门大学 Ying Chen）"></a>1. Photonic zero-energy modes in a metal-based Lieb lattice（厦门大学 Ying Chen）</h2><p>提出一种基于金属背景——空气孔的<code>Lieb晶格</code>光子晶体，在所设计的基态和偶极态光子系统中观测到了非紧致零能模（<code>noncompact zero-energy modes</code>），这些模满足相消干涉条件。<strong>这种光子零能量模式只需一个点源就可以激发，并占据所有的少数位置.</strong></p><p><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/20201113134649.png" alt=""></p><p><code>Lieb Lattice</code>，这些模拟原子可以通过倏逝波来进行耦合。调整<code>d</code>或者调整<code>r</code>都会改变耦合强度。</p><p>强调了只有<code>NN couplings(nearest neighbours couplings)</code>由于短距离的倏逝波耦合</p><p><img src="https://gitee.com/shenshilei1022/hugo_image_resource/raw/master/imgs/20201113141927.png" alt=""></p><p><strong>A, B, C的介电常数不同引起s能带简并点打开。</strong></p><p>可以看到平带的场模式都高度集中于BC位置。<strong>这些特征是由<code>Lieb Lattice</code>的干涉相消引起的，从而导致近邻耦合下的这些平带。</strong></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端练习-九宫格</title>
       <link href="post/1ea5/"/>
       <url>post/1ea5/</url>
@@ -726,11 +739,11 @@
       
         <tags>
             
-            <tag> Vue </tag>
-            
             <tag> Linux </tag>
             
             <tag> Nginx </tag>
+            
+            <tag> Vue </tag>
             
         </tags>
       
