@@ -30,10 +30,10 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <div class="logo-expanded" style="margin: auto; padding-left: 45px;">
+                        <div class="logo-expanded" style="margin: auto; padding-left: 45px;" id="rotate">
                             <img src="https://shenshilei1022.gitee.io/img/favicon.ico" height="80" alt="网站聚合 | 虎口脱险" style="border-radius: 50%; border: 2px solid #979898;">
                         </div>
-                        <div class="logo-collapsed" >
+                        <div class="logo-collapsed" id="rotate">
                             <img src="https://shenshilei1022.gitee.io/img/favicon.ico" height="60" alt="网站聚合 | 虎口脱险" style="border-radius: 50%; border: 2px solid #979898;">
                         </div>
                     </div>
@@ -102,7 +102,7 @@
             <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 761.4px; right: 2px;"><div class="ps-scrollbar-y" style="top: 0px; height: 749px;"></div></div></div>
         </div>
         <div class="main-content">
-            <nav class="navbar user-info-navbar" role="navigation">
+            <div class="navbar user-info-navbar" role="navigation">
                 <div class="navbar-content">
                     <div class="menu-top">
                         <ul id="menu-%e8%8f%9c%e5%8d%95" class="menu">
@@ -118,7 +118,7 @@
                         .menu-top ul li a{ display: block;height: 100%; line-height: 80px; font-size: 14px; color: #555; padding: 0 20px; }
                     </style>
                 </div>
-            </nav> 
+            </div> 
             <div id="search" class="s-search">
                 <div id="search-list" class="hide-type-list">
                     <div class="s-type">
@@ -1218,6 +1218,23 @@
             <style>
                 body {
                     cursor: url(https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/cursor.ico),default;
+                }
+                .navbar .navbar-content {
+                    top: 0px;
+                }
+                .page-container .sidebar-menu .sidebar-menu-inner > header > div > div img{
+                    -webkit-transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                    -o-transition: all 0.5s;
+                    -ms-transition: all 0.5s;
+                    transition: all 0.5s;
+                }
+                .page-container .sidebar-menu .sidebar-menu-inner > header > div > div img:hover {
+                    -webkit-transform: rotate(360deg);
+                    -moz-transform: rotate(360deg);
+                    -o-transform: rotate(360deg);
+                    -ms-transform: rotate(360deg);
+                    transform: rotate(360deg);
                 }
             </style>
             <!-- end 自定义代码 -->
