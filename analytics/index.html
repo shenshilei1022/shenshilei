@@ -151,7 +151,7 @@ for (var time = startDate; time <= endDate; time += dayTime) {
     monthMap.set(month, 0);
   }
 }
-var postDate = '2020-05,2020-09,2020-04,2020-03,2020-02,2020-05,2020-06,2020-05,2020-04,2020-04,2020-03,2020-06,2020-03,2020-07,2020-07,2020-07,2020-04,2020-09,2020-07,2020-06,2020-07,2020-06,2020-04,2020-05,2020-08,2020-07,2020-07,2020-04,2020-07,2020-04,2020-04,2020-02,2020-02,2020-02,2020-03,2020-02,2020-02,2020-05,2020-06,2020-05,2020-07,2020-07,2021-03,2020-04,2020-02,2020-05,2020-02,2020-04,2020-06,2020-03,2020-04,2020-06,2020-06,2020-05,2020-03,2020-05,2020-05,2020-06,2020-07,2020-08,2020-09,2020-05,2020-09,2020-08,2020-09,2020-08,2020-08,2020-08,2020-08,2020-09,2020-08,2020-09,2020-08,2020-09,2020-05,2020-05,2020-05,2020-05,2020-08,2020-08,2020-08,2020-08,2020-08,2020-08,2020-08,2020-03,2020-05,2020-06,2020-03,2020-08,2020-03';
+var postDate = '2020-05,2020-09,2020-04,2020-03,2020-02,2020-05,2020-06,2020-05,2020-04,2020-04,2020-03,2020-06,2020-03,2020-07,2020-07,2020-07,2020-04,2020-09,2020-04,2020-02,2020-02,2020-02,2020-03,2020-07,2020-06,2020-07,2020-06,2020-04,2020-05,2020-08,2020-07,2020-07,2020-04,2020-04,2020-07,2020-02,2020-02,2020-05,2020-06,2020-05,2020-07,2020-07,2021-03,2020-04,2020-02,2020-05,2020-02,2020-04,2020-06,2020-06,2020-04,2020-06,2020-03,2020-05,2020-03,2020-06,2020-05,2020-05,2020-07,2020-08,2020-09,2020-05,2020-09,2020-08,2020-09,2020-08,2020-08,2020-08,2020-08,2020-09,2020-09,2020-08,2020-08,2020-09,2020-08,2020-08,2020-08,2020-08,2020-08,2020-08,2020-08,2020-05,2020-05,2020-05,2020-05,2020-03,2020-05,2020-06,2020-03,2020-08,2020-03';
 var postDateArr = postDate.split(",");
 
 for (let i = 0; i < postDateArr.length; i++) {
@@ -213,14 +213,14 @@ let postsOption = {
 
 /* calculate categoriesOption data. */
 var categoryArr = [];
-var categoryName = '云服务器,算法,Java,项目管理,Web项目,Python,前端,基础,实战,工具使用,mkdocs,pip,小工具,CSS,HTML,Vue,实战,数据库,Hexo,生活,LeetCode,数据库,剑指Offer,Git,Hugo,IDEA,Linux,iOS,图床,安装,MySQL,厨房,游记,电视剧AND电影,游戏,随笔,数据库操作,JavaScript';
+var categoryName = '云服务器,算法,Java,项目管理,Web项目,Python,前端,基础,实战,工具使用,mkdocs,pip,小工具,CSS,HTML,Vue,实战,数据库,Git,安装,生活,LeetCode,Hexo,剑指Offer,数据库,Hugo,IDEA,Linux,iOS,图床,MySQL,厨房,游戏,游记,电视剧AND电影,随笔,数据库操作,JavaScript';
 var categoryNameArr = categoryName.split(",");
-var categoryLength = '1,28,9,1,2,3,9,2,2,33,1,1,1,2,1,3,2,3,12,5,15,4,8,5,2,3,4,2,2,3,3,1,1,1,1,1,2,1';
+var categoryLength = '1,28,9,1,2,3,9,2,2,33,1,1,1,2,1,3,2,3,5,3,5,15,12,8,4,2,3,4,2,2,3,1,1,1,1,1,2,1';
 var categoryLengthArr = categoryLength.split(",");
 var categoryLengthArr = categoryLengthArr.map(Number);
-var categoryParent = 'undefined,undefined,undefined,ckpnvomje000jr8tuhh7v8uoh,ckpnvomje000jr8tuhh7v8uoh,undefined,undefined,ckpnvomje000jr8tuhh7v8uoh,ckpnvomje000jr8tuhh7v8uoh,undefined,ckpnvomk5001rr8tu6anl5qu1,ckpnvomk5001rr8tu6anl5qu1,ckpnvomk5001rr8tu6anl5qu1,ckpnvomkr002gr8tu44n82su1,ckpnvomkr002gr8tu44n82su1,ckpnvomkr002gr8tu44n82su1,ckpnvomkr002gr8tu44n82su1,undefined,ckpnvomlm0043r8tudc7420jk,undefined,ckpnvomj9000cr8tu3nq1429w,ckpnvomj9000cr8tu3nq1429w,ckpnvomj9000cr8tu3nq1429w,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomlm0043r8tudc7420jk,ckpnvomol009qr8tubgi4cn0h,ckpnvomoz00aar8tu1jmmez92,ckpnvomoz00aar8tu1jmmez92,ckpnvomoz00aar8tu1jmmez92,ckpnvomoz00aar8tu1jmmez92,ckpnvomoz00aar8tu1jmmez92,ckpnvomje000jr8tuhh7v8uoh,ckpnvomkr002gr8tu44n82su1';
+var categoryParent = 'undefined,undefined,undefined,ckrjdjpwf000jzctu1t4k3613,ckrjdjpwf000jzctu1t4k3613,undefined,undefined,ckrjdjpwf000jzctu1t4k3613,ckrjdjpwf000jzctu1t4k3613,undefined,ckrjdjpyd001rzctuf8exa4je,ckrjdjpyd001rzctuf8exa4je,ckrjdjpyd001rzctuf8exa4je,ckrjdjpyy002gzctu8ihabvck,ckrjdjpyy002gzctu8ihabvck,ckrjdjpyy002gzctu8ihabvck,ckrjdjpyy002gzctu8ihabvck,undefined,ckrjdjq0p0043zctu9mcd142l,ckrjdjq0p0043zctu9mcd142l,undefined,ckrjdjpw1000czctu923ba2hj,ckrjdjq0p0043zctu9mcd142l,ckrjdjpw1000czctu923ba2hj,ckrjdjpw1000czctu923ba2hj,ckrjdjq0p0043zctu9mcd142l,ckrjdjq0p0043zctu9mcd142l,ckrjdjq0p0043zctu9mcd142l,ckrjdjq0p0043zctu9mcd142l,ckrjdjq0p0043zctu9mcd142l,ckrjdjq5j009fzctufqwf8gd7,ckrjdjq6100aczctufjkjd57e,ckrjdjq6100aczctufjkjd57e,ckrjdjq6100aczctufjkjd57e,ckrjdjq6100aczctufjkjd57e,ckrjdjq6100aczctufjkjd57e,ckrjdjpwf000jzctu1t4k3613,ckrjdjpyy002gzctu8ihabvck';
 var categoryParentArr = categoryParent.split(",");
-var categoryId = 'ckpnvomj10004r8tu69p268vz,ckpnvomj9000cr8tu3nq1429w,ckpnvomje000jr8tuhh7v8uoh,ckpnvomjy001dr8tu94v05wih,ckpnvomk1001jr8tu5pe26gj6,ckpnvomk5001rr8tu6anl5qu1,ckpnvomkr002gr8tu44n82su1,ckpnvomkt002nr8tu0t0r7rq2,ckpnvoml10034r8tub17cfh9a,ckpnvomlm0043r8tudc7420jk,ckpnvomm4004sr8tubnbh09l3,ckpnvommm005cr8tuccv5dyuk,ckpnvomnb0068r8tu95br45nw,ckpnvomni006tr8tug1l077jh,ckpnvomno007jr8tu40fp0yyf,ckpnvomnq007xr8tuh8k1eadc,ckpnvomo5009ar8tu2npx6tau,ckpnvomol009qr8tubgi4cn0h,ckpnvomon009ur8tufdwwd0ms,ckpnvomoz00aar8tu1jmmez92,ckpnvompe00b0r8tu4fv4dug7,ckpnvomqb00dsr8tubpz54e18,ckpnvomqh00egr8tufqsggi37,ckpnvomqp00eyr8tu4sluhjhl,ckpnvomqu00fgr8tu11vt48tb,ckpnvomqv00fmr8tu21b04uby,ckpnvomqx00fvr8tu61fh26ub,ckpnvomqz00g7r8tu3f0la74h,ckpnvomr000gdr8tu6kjxgwxn,ckpnvomr200gjr8tubeehbcd0,ckpnvomr500gsr8tueh7l4rsx,ckpnvomr600h1r8tu0owv8lyj,ckpnvomr700h5r8tucpjo93su,ckpnvomr900h8r8tu6jhe5zuq,ckpnvomra00hbr8tuaujd0vnl,ckpnvomra00her8tu3io18y3z,ckpnvomrx00htr8tuenijetdo,ckpnvorvn00ihr8tu93p5124g';
+var categoryId = 'ckrjdjpvi0004zctu1tfuacck,ckrjdjpw1000czctu923ba2hj,ckrjdjpwf000jzctu1t4k3613,ckrjdjpxt001dzctucaya2gbe,ckrjdjpy7001jzctuawho30b9,ckrjdjpyd001rzctuf8exa4je,ckrjdjpyy002gzctu8ihabvck,ckrjdjpz2002nzctu2apl7nlr,ckrjdjpzf0034zctu8v3c9k3v,ckrjdjq0p0043zctu9mcd142l,ckrjdjq1o004szctu9c8l9dpf,ckrjdjq2j005bzctu2cg26uto,ckrjdjq3g0068zctu51us1moa,ckrjdjq3y006tzctuafcodyr4,ckrjdjq4d007jzctu5yh9fzhl,ckrjdjq4l007xzctuhye3cvw9,ckrjdjq5f009azctubbu4dhk0,ckrjdjq5j009fzctufqwf8gd7,ckrjdjq5s009uzctucqkfgq4k,ckrjdjq5v009zzctu0ngzepf2,ckrjdjq6100aczctufjkjd57e,ckrjdjq6g00b2zctu8wlz725u,ckrjdjq6z00btzctubb9rfyzm,ckrjdjq8100dvzctu0y2afzvu,ckrjdjq8g00euzctu6aih4ez5,ckrjdjq8v00fizctubw49dopx,ckrjdjq8z00fozctu4ksz818o,ckrjdjq9300fxzctue90u0v8w,ckrjdjq9900g9zctu04scdb9r,ckrjdjq9b00gfzctuhw9a7k28,ckrjdjq9g00gozctu26wx2hry,ckrjdjq9s00h0zctu6eq1b506,ckrjdjq9t00h4zctu17v2e4z8,ckrjdjq9w00h7zctub4us8rb9,ckrjdjq9x00hazctuahyz9eav,ckrjdjq9z00hdzctuckr57zaa,ckrjdjqam00hszctu5om895ip,ckrjdjwmn00igzctugakb8d4d';
 var categoryIdArr = categoryId.split(",");
 
 for (let i = 0; i < categoryNameArr.length; i++) {
@@ -279,9 +279,9 @@ let categoriesOption = {
 };
 // 计算top10标签
 var tagArr = [];
-var tagName = 'Java,Web,服务器,算法,Web项目,字符串,音乐,Maven,Python,mkdocs,pip,自动化办公,前端,CSS,HTML,Vue,JavaScript,Hexo,butterfly,美化,私密文章,说说,Valine,live2d,个人博客,jsDelivr,GitHub,Git,版本控制,Git Pages,Hugo,IDEA,云服务器,jar,Linux,Nginx,NodeJS,虚拟机,Gitee,bash,iPad,iOS,快捷指令,PicGo,软件安装,CodeSheep,Tomcat,MySQL,函数,外键,连接,厨房,五一,旅游,网剧,国产,随笔,IO,Mybatis';
+var tagName = 'Java,Web,服务器,算法,Web项目,字符串,音乐,Maven,Python,mkdocs,pip,自动化办公,前端,CSS,HTML,Vue,JavaScript,jsDelivr,GitHub,Git,版本控制,Git Pages,Hexo,butterfly,美化,私密文章,说说,Valine,live2d,个人博客,Hugo,IDEA,云服务器,jar,Linux,Nginx,NodeJS,虚拟机,Gitee,bash,iPad,iOS,快捷指令,PicGo,软件安装,CodeSheep,MySQL,外键,函数,Tomcat,连接,厨房,五一,旅游,网剧,国产,随笔,IO,Mybatis';
 var tagNameArr = tagName.split(",");
-var tagLength = '10,3,1,28,2,1,1,3,3,1,1,1,1,4,3,4,3,12,1,1,1,1,3,1,1,1,4,3,3,1,2,3,1,1,3,2,1,1,2,1,1,1,1,2,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1';
+var tagLength = '10,3,1,28,2,1,1,3,3,1,1,1,1,4,3,4,3,1,4,3,3,1,12,1,1,1,1,3,1,1,2,3,1,1,3,2,1,1,2,1,1,1,1,2,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1';
 var tagLengthArr = tagLength.split(",");
 var tagLengthArr = tagLengthArr.map(Number);
 
